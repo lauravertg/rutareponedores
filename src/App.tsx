@@ -55,6 +55,11 @@ const buildRoutePoints = (data: RestockEntry[]): RoutePoint[] => {
 // --- COMPONENTE PRINCIPAL ---
 
 const App = () => {
+
+ 
+  // --- AÑADE ESTA LÍNEA AQUÍ ---
+  console.log("LISTA DE USUARIOS:", usersList); 
+  
   // Estados de la App
   const [isLoading, setIsLoading] = useState(true);
   const [points, setPoints] = useState<RoutePoint[]>([]);
@@ -168,11 +173,12 @@ const App = () => {
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Selecciona tu nombre</label>
-              <select 
-                className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-indigo-500 outline-none"
-                value={selectedUserLogin}
-                onChange={(e) => setSelectedUserLogin(e.target.value)}
-              >
+<select 
+  style={{ width: '100%', padding: '10px', border: '2px solid black', fontSize: '16px' }}
+  className="w-full p-3 border border-gray-300 rounded-lg bg-white"
+  value={selectedUserLogin}
+  onChange={(e) => setSelectedUserLogin(e.target.value)}
+>
                 <option value="">-- Seleccionar --</option>
                 {usersList.map((u) => (
                   <option key={u.name} value={u.name}>{u.name}</option>
